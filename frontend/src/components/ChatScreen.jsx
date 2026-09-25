@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 
-export default function ChatScreen({ username, ws }) {
+export default function ChatScreen({ username, ws, onLogout }) {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [connected, setConnected] = useState(true)
@@ -67,6 +67,7 @@ export default function ChatScreen({ username, ws }) {
         <span className={`status ${connected ? '' : 'disconnected'}`}>
           ● {connected ? 'Connected' : 'Disconnected'}
         </span>
+        <button className="logout-btn" onClick={onLogout}>Logout</button>
       </div>
 
       <div className="messages">

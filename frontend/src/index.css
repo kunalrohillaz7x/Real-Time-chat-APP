@@ -240,3 +240,113 @@ body {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Auth Screen ── */
+.auth-screen {
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.auth-screen h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #25d366;
+  margin-bottom: 0.5rem;
+}
+
+.auth-screen p {
+  color: #8696a0;
+  margin-bottom: 2rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 1px solid #2a3942;
+  background: #1f2c34;
+  color: #e9edef;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+  border-color: #25d366;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #25d366;
+  color: #111b21;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  margin-top: 4px;
+}
+
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.auth-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-error {
+  color: #ea4335;
+  font-size: 0.85rem;
+  background: rgba(234, 67, 53, 0.1);
+  padding: 8px 14px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.auth-toggle {
+  color: #8696a0;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+.auth-toggle span {
+  color: #25d366;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-toggle span:hover {
+  text-decoration: underline;
+}
+
+/* ── Logout Button ── */
+.logout-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #2a3942;
+  background: transparent;
+  color: #ea4335;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.logout-btn:hover {
+  background: rgba(234, 67, 53, 0.15);
+}
