@@ -1,10 +1,29 @@
 import { useState, useRef, useEffect } from 'react'
 
+const API = 'http://localhost:8000'
+
 export default function ChatScreen({ username, ws, onLogout }) {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [connected, setConnected] = useState(true)
   const messagesEndRef = useRef(null)
+
+  // Fetch chat history on mount
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    fetch(`${API}/messages`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((history) => {
+        const formatted = history.map((msg) => ({
+          text: `${msg.sender}: ${msg.content}`,
+          type: msg.sender === username ? 'self' : 'other',
+        }))
+        setMessages(formatted)
+      })
+      .catch(() => {})  // silently ignore if history fails
+  }, [username])
 
   // Listen for WebSocket messages
   useEffect(() => {
